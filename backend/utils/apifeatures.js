@@ -36,6 +36,18 @@ class ApiFeatures{
         return this;
     }
 
+    pagination(resultPerpage){
+        const currentPage = Number(this.queryStr.page)||1;
+
+        const skip=resultPerpage*(currentPage-1);
+
+        this.query=this.query.limit(resultPerpage).skip(skip);
+
+        return this ;
+
+
+    }
+
     
 }
 
